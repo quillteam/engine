@@ -215,6 +215,26 @@ $Project "vgui_surfacelib"
 	"vgui2\vgui_surfacelib\vgui_surfacelib.vpc"
 }
 
+$Project "scenefilecache"
+{
+	"scenefilecache\scenefilecache.vpc"
+}
+
+$Project "sfmobjects"
+{
+	"sfmobjects\sfmobjects.vpc"
+}
+
+$Project "soundemittersystem"
+{
+	"soundemittersystem\soundemittersystem.vpc"
+}
+
+$Project "soundsystem"
+{
+	"soundsystem\soundsystem.vpc"
+}
+
 $Project "serverbrowser"
 {
 	"serverbrowser/ServerBrowser.vpc"
