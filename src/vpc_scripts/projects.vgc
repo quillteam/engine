@@ -165,6 +165,66 @@ $Project "bitmap"
 	"bitmap/bitmap.vpc"
 }
 
+$Project "vpklib"
+{
+	"vpklib/vpklib.vpc"
+}
+
+$Project "vstdlib"
+{
+	"vstdlib/vstdlib.vpc"
+}
+
+$Project "gameui"
+{
+	"gameui/GameUI.vpc"
+}
+
+$Project "adminserver"
+{
+	"tracker\AdminServer\AdminServer.vpc"
+}
+
+$Project "vgui_dll"
+{
+	"vgui2\src\vgui_dll.vpc"
+}
+
+$Project "matsys_controls"
+{
+	"vgui2\matsys_controls\matsys_controls.vpc"
+}
+
+$Project "dme_controls"
+{
+	"vgui2\dme_controls\dme_controls.vpc"
+}
+
+$Project "vlocalize"
+{
+	"vgui2\vlocalize\vlocalize.vpc"
+}
+
+$Project "movieobjects"
+{
+	"movieobjects\movieobjects.vpc"
+}
+
+$Project "vgui_surfacelib"
+{
+	"vgui2\vgui_surfacelib\vgui_surfacelib.vpc"
+}
+
+$Project "serverbrowser"
+{
+	"serverbrowser/ServerBrowser.vpc"
+}
+
+$Project "filesystem_stdio"
+{
+	"filesystem/filesystem_stdio.vpc"
+}
+
 $Project "particles"
 {
 	"particles/particles.vpc"
