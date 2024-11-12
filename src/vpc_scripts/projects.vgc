@@ -145,6 +145,31 @@ $Project "launcher_main"
 	"launcher_main/launcher_main.vpc"
 }
 
+$Project "tier0"
+{
+	"tier0/tier0.vpc"
+}
+
+$Project "tier2"
+{
+	"tier2/tier2.vpc"
+}
+
+$Project "vtf"
+{
+	"vtf/vtf.vpc"
+}
+
+$Project "particles"
+{
+	"particles/particles.vpc"
+}
+
+$Project "tier3"
+{
+	"tier3/tier3.vpc"
+}
+
 $Project "newdat"
 {
 	"utils/newdat/newdat.vpc"
