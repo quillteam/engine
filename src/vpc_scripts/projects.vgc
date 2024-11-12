@@ -160,9 +160,24 @@ $Project "vtf"
 	"vtf/vtf.vpc"
 }
 
+$Project "bitmap"
+{
+	"bitmap/bitmap.vpc"
+}
+
 $Project "particles"
 {
 	"particles/particles.vpc"
+}
+
+$Project "datamodel"
+{
+	"datamodel/datamodel.vpc"
+}
+
+$Project "datacache"
+{
+	"datacache/datacache.vpc"
 }
 
 $Project "tier3"
