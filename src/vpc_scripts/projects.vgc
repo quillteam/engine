@@ -130,7 +130,7 @@ $Project "vvis_launcher"
 
 // Quill stuff
 
-$Project "vvis_launcher"
+$Project "appframework"
 {
 	"appframework/appframework.vpc"
 }
