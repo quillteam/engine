@@ -56,7 +56,11 @@ $Group "everything"
 	"vvis_dll"
 	"vvis_launcher"
 // Quill stuff
+	"tier0"
+	"newdat"
 	"appframework"
+	"launcher"
+	"launcher_main"
 }
 
 $Group "dedicated"

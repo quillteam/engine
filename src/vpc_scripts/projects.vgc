@@ -134,3 +134,18 @@ $Project "appframework"
 {
 	"appframework/appframework.vpc"
 }
+
+$Project "launcher"
+{
+	"launcher/launcher.vpc"
+}
+
+$Project "launcher_main"
+{
+	"launcher_main/launcher_main.vpc"
+}
+
+$Project "newdat"
+{
+	"utils/newdat/newdat.vpc"
+}
