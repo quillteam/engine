@@ -55,6 +55,8 @@ $Group "everything"
 	"vtfdiff"
 	"vvis_dll"
 	"vvis_launcher"
+// Quill stuff
+	"appframework"
 }
 
 $Group "dedicated"
