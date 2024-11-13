@@ -265,6 +265,41 @@ $Project "tier3"
 	"tier3/tier3.vpc"
 }
 
+$Project "mdllib"
+{
+	"mdllib/mdllib.vpc"
+}
+
+$Project "unicode"
+{
+	"unicode/unicode.vpc"
+}
+
+$Project "bsppack"
+{
+	"utils/bsppack/bsppack.vpc"
+}
+
+$Project "bspzip"
+{
+	"utils/bspzip/bspzip.vpc"
+}
+
+$Project "bzip2"
+{
+	"utils/bzip2/bzip2.vpc"
+}
+
+$Project "engine"
+{
+	"engine/engine.vpc"
+}
+
+$Project "inputsystem"
+{
+	"inputsystem/inputsystem.vpc"
+}
+
 $Project "newdat"
 {
 	"utils/newdat/newdat.vpc"
