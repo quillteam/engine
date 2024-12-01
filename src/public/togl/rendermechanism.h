@@ -59,7 +59,8 @@
 			#include "d3dx9.h"
 		#else
 			#include <windows.h>
-			#include "d3d9.h"
+			#include "../../dx9sdk/include/d3d9.h"
+			#include "../../dx9sdk/include/d3dx9.h"
 		#endif
 		typedef HWND VD3DHWND;
 	#endif
