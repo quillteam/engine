@@ -54,3 +54,11 @@ config.cfg
 # shader files
 *.tmp
 
+# Quill
+game/
+!src/game/
+
+/src/.vs
+*.vpc_crc
+*.filters
+*.sentinel
