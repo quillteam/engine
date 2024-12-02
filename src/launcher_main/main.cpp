@@ -125,13 +125,13 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 #endif
 	if ( !launcher )
 	{
-		char *pszError;
-		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR)&pszError, 0, NULL);
+		wchar_t *pszError;
+		FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPWSTR)&pszError, 0, NULL);
 
-		char szBuf[1024];
-		_snprintf(szBuf, sizeof( szBuf ), "Failed to load the launcher DLL:\n\n%s", pszError);
-		szBuf[sizeof( szBuf ) - 1] = '\0';
-		MessageBox( 0, szBuf, "Launcher Error", MB_OK );
+		wchar_t szBuf[1024];
+		_snwprintf(szBuf, sizeof(szBuf) / sizeof(wchar_t), L"Failed to load the launcher DLL:\n%s", pszError);
+		szBuf[(sizeof(szBuf) / sizeof(wchar_t)) - 1] = L'\0';
+		MessageBoxW(0, szBuf, L"Launcher Error", MB_OK);
 
 		LocalFree(pszError);
 		return 0;

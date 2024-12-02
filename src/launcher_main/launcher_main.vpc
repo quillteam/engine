@@ -9,11 +9,9 @@ $MacroRequired "PLATSUBDIR"
 $Macro SRCDIR		".."
 $Macro OUTBINDIR	"$SRCDIR\..\game"
 
-// Must be built explicitly as "default" in order to build a compliant submittable Disc.
-// Renames will not work.
-$Macro OUTBINNAME	"default"
-$Macro OUTBINNAME       "hl2_osx" [$OSXALL]
-$Macro OUTBINNAME       "hl2_linux" [$LINUXALL]
+$Macro OUTBINNAME	"hl2"
+$Macro OUTBINNAME   "hl2_osx" [$OSXALL]
+$Macro OUTBINNAME   "hl2_linux" [$LINUXALL]
 
 $Include "$SRCDIR\vpc_scripts\source_exe_base.vpc"
 
@@ -57,20 +55,23 @@ $Configuration
 									"call $SRCDIR\vpc_scripts\valve_xbcp_wrapper.cmd $(TargetDir)$(TargetName).xex xE:\Valve\default.xex" "\n"
 	}
 
-	$PostBuildEvent [$WIN32 && !$ANALYZE]
+	$PostBuildEvent [!$ANALYZE]
 	{
-		$CommandLine "if not exist $QUOTE$OUTBINDIR$QUOTE mkdir $QUOTE$OUTBINDIR$QUOTE" "\n"
-		$CommandLine "copy $QUOTE$(TargetDir)$(TargetFileName)$QUOTE $QUOTE$OUTBINDIR\\$(TargetFileName)$QUOTE" "\n" \
-					"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
-					"if exist $QUOTE$(TargetDir)$(TargetName).map$QUOTE copy $QUOTE$(TargetDir)$(TargetName).map$QUOTE $OUTBINDIR\\$(TargetName).map" "\n"
-		$CommandLine "copy $QUOTE$(TargetDir)$(TargetName).pdb$QUOTE $OUTBINDIR\\$(TargetName).pdb" "\n" \
-					"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
-					"goto BuildEventOK" "\n" \
-					":BuildEventFailed" "\n" \
-					"echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***" "\n" \
-					"del /q $QUOTE$(TargetDir)$(TargetFileName)$QUOTE" "\n" \
-					"exit 1" "\n" \
-					":BuildEventOK" "\n"
+		$CommandLine		"call $SRCDIR\vpc_scripts\valve_p4_edit.cmd $OUTBINDIR\$(TargetFileName) $SRCDIR" "\n" [!$SOURCESDK]
+		$CommandLine		"$BASE"	"copy $QUOTE$(TargetDir)$QUOTE$(TargetFileName) $OUTBINDIR\$(TargetFileName) >nul" "\n" \
+							"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
+							"if exist $QUOTE$(TargetDir)$QUOTE$(TargetName).map copy $QUOTE$(TargetDir)$QUOTE$(TargetName).map $OUTBINDIR\$(TargetName).map >nul" "\n"
+		$CommandLine		"$BASE"	"call $SRCDIR\vpc_scripts\valve_p4_edit.cmd $OUTBINDIR\$(TargetName).pdb $SRCDIR" "\n" [!$SOURCESDK]
+		$CommandLine		"$BASE"	"copy $QUOTE$(TargetDir)$QUOTE$(TargetName).pdb $OUTBINDIR\$(TargetName).pdb >nul" "\n" \
+							"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
+							"goto BuildEventOK" "\n" \
+							":BuildEventFailed" "\n" \
+							"echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***" "\n" \
+							"del /q $QUOTE$(TargetDir)$QUOTE$(TargetFileName)" "\n" \
+							"exit 1" "\n" \
+							":BuildEventOK" "\n"
+		$Description		"Publishing to $OUTBINDIR"
+		$ExcludedFromBuild	"No"
 	}
 }
 
